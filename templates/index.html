@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <title>Loan Approval Prediction</title>
+</head>
+<body>
+    <h1>Loan Approval Prediction</h1>
+    <form action="/predict" method="POST">
+        <label for="gender">Gender (1 for Male, 0 for Female):</label>
+        <input type="number" id="gender" name="gender" required><br><br>
+
+        <label for="education">Education (1 for Graduate, 0 for Not Graduate):</label>
+        <input type="number" id="education" name="education" required><br><br>
+
+        <label for="income">Applicant Income:</label>
+        <input type="number" id="income" name="income" required><br><br>
+
+        <label for="credit_history">Credit History (1 for Good, 0 for Bad):</label>
+        <input type="number" id="credit_history" name="credit_history" required><br><br>
+
+        <label for="property_area">Property Area (0 for Rural, 1 for Semiurban, 2 for Urban):</label>
+        <input type="number" id="property_area" name="property_area" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
